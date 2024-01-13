@@ -31,7 +31,7 @@ export const actions: Actions = {
         }
 
     },
-    login_Oauth: async ({ request, locals, url }) => {
+    login_Oauth: async ({locals, url }) => {
         // the form action is going to have the provider added to the email
         // so the formAction knows what provider you are using
         const provider = url.searchParams.get("provider") as Provider;
