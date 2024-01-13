@@ -6,7 +6,7 @@
 	export let info: any;
 </script>
 
-<div class="w-1/2 m-auto">
+<div class="m-auto">
 	<!-- top segment: avatar and name -->
 	<section class="flex items-center">
 		<Avatar src={info.user.profile_img} />
