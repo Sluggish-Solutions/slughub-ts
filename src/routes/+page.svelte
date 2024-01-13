@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 	import Post from '$lib/components/home/Post.svelte';
 
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
@@ -23,3 +23,4 @@
 </script>
 
 <Post info={post1} />
+
