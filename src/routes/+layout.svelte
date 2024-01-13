@@ -10,7 +10,7 @@
 	<div class="m-auto">
 		<Header />
 		<slot />
-	  	<div class="sm:hidden">
+	  	<div class="sm:hidden fixed bottom-0 w-full">
 			<Footer />
 	  	</div>
 	</div>
