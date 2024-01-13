@@ -22,5 +22,3 @@
 	}
 </script>
 
-<!-- <Post info={test_user} /> -->
-<Send />
