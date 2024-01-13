@@ -6,6 +6,7 @@ import type { Database } from '../types/supabase.types.js'
 import type { Handle } from '@sveltejs/kit'
 // hooks.server.ts basically runs the code inside whenever 
 export const handle: Handle = async ({ event, resolve }) => {
+	// makes supabase usable throughout the project by passing in locals into load function
   event.locals.supabase = createSupabaseServerClient<Database>({
     supabaseUrl: PUBLIC_SUPABASE_URL,
     supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
@@ -24,6 +25,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	console.log(event);
   return resolve(event, {
 		
+	// im not fully sure what this is supposed to do
     filterSerializedResponseHeaders(name) {
       return name === 'content-range'
     },
