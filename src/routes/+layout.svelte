@@ -1,21 +1,24 @@
 <script lang="ts">
-	import '../app.postcss';
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+    import '../app.postcss';
+    import Header from '$lib/components/Header.svelte';
+    import Footer from '$lib/components/Footer.svelte';
+    import SideNav from '$lib/components/SideNav.svelte';
 </script>
+
 <div class="flex">
-	<div class="hidden sm:block">
-	  lkdsafj;ldsjfsldjf;ld
+	<div class="sticky top-0 z-20 py-20 px-5 bg-black">
+		<SideNav/>
 	</div>
-	<div class="m-auto">
-		<Header />
-		<slot />
-	  	<div class="sm:hidden fixed bottom-0 w-full">
+	<div>
+		<div class="sticky top-0 z-20 p-4 bg-black">
+			<Header />
+		</div>
+
+		<div class="flex">
+			<slot />
+		</div>
+		<div class="sm:hidden fixed bottom-0 w-full">
 			<Footer />
-	  	</div>
-	</div>
-	<div class="hidden sm:block">
-	  alkdsfj;lkdsjf;ldsajfsa
+		</div>
 	</div>
 </div>
-  

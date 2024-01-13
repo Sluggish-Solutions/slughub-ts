@@ -8,7 +8,6 @@
         <img class="max-h-10 " src="/icon.png" alt="Icon">
         <h1 class="m-3 font-raleway text-2xl">SlugHub</h1>
     </div>
-    <!-- Img below created by Ivan Abirawa - Flaticon -->
     <div class="=max-h-8 mr-2">
         <Send />
     </div>
