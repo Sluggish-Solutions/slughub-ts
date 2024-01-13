@@ -4,7 +4,7 @@ import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/publi
 import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit'
 import type { Database } from '../types/supabase.types.js'
 import type { Handle } from '@sveltejs/kit'
-// hooks.server.ts basically runs the code inside whenever 
+// hooks.server.ts basically runs the code inside whenever the server gets a request
 export const handle: Handle = async ({ event, resolve }) => {
 	// makes supabase usable throughout the project by passing in locals into load function
   event.locals.supabase = createSupabaseServerClient<Database>({
@@ -12,7 +12,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
     event,
   })
-
+  console.log('heloo');
   /**
    * A convenience helper so we can just call await getSession() instead const { data: { session } } = await supabase.auth.getSession()
    */
