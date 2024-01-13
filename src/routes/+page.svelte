@@ -1,14 +1,14 @@
-<script>
+<script lang='ts'>
 	import Post from '$lib/components/home/Post.svelte';
-	import { Send } from 'lucide-svelte'
 
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
 	export let data
 
-	let post = {
+	let post1 = {
 		info: {
-			id: 1,
-			title: 'test post',
+			id: 1, // post_id
+			user_id: 1,
+			description: 'this is the first post',
 			content: 'test content',
 			likes: 0,
 			comments: 0,
@@ -21,4 +21,6 @@
 		}
 	}
 </script>
+
+<Post info={post1} />
 
