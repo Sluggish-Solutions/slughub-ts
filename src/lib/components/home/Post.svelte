@@ -2,12 +2,16 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
-	import type {Tables} from '../../../../types/supabase.types'
+
+	export let info: any;
+
+	import type { Tables } from '../../../../types/supabase.types';
 	// need to add user types later
-	export let info: Tables<"posts">;
-	export let curr_user_id: string;
+	// export let info: Tables<"posts">;
+
 	let showMore = false;
 	let showComments = false;
+	// console.log(info);
 
 	// Get the current timestamp
 	const now = new Date();
@@ -41,15 +45,15 @@
 		showComments = !showComments;
 	};
 
-	async function likePost () {
-		const res = await fetch('/api/likePost', {
-			method: 'POST',
-			body: JSON.stringify({
+	// async function likePost () {
+	// 	const res = await fetch('/api/likePost', {
+	// 		method: 'POST',
+	// 		body: JSON.stringify({
 
-				"user_id":curr_user_id,
-				"post_id": info.id,
-			})
-		})
+	// 			"user_id":curr_user_id,
+	// 			"post_id": info.id,
+	// 		})
+	// 	})}
 </script>
 
 <main class="py-3 w-full">
