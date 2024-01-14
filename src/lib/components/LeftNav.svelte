@@ -9,19 +9,11 @@
 		<h1 class="font-raleway text-2xl">SlugHub</h1>
 	</div>
 
-<<<<<<< HEAD
-    <LeftNavEntry Icon={Home} label="Home" />
-    <LeftNavEntry Icon={Search} label="Search" />
-    <LeftNavEntry Icon={PlusSquare} label="Post" />
-    <LeftNavEntry Icon={Send} label="Messages" />
-    <LeftNavEntry Icon={Heart} label="Liked" />
-    <LeftNavEntry Icon={User} label="Profile" href="/profile"/>
-=======
 	<LeftNavEntry Icon={Home} label="Home" href="/" />
 	<LeftNavEntry Icon={Search} label="Search" />
 	<LeftNavEntry Icon={PlusSquare} label="Post" href="/post" />
 	<LeftNavEntry Icon={Send} label="Messages" href="/messages" />
 	<LeftNavEntry Icon={Heart} label="Liked" href="/liked" />
 	<LeftNavEntry Icon={User} label="Profile" href="/profile" />
->>>>>>> 0c3bab62bf05089953f1aa35c13216e4943689c8
+
 </nav>
