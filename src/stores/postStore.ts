@@ -22,7 +22,9 @@ export const likePost = async(post_id: string) => {
 let user_id = ''
 	curr_user_id.subscribe((value)=> user_id = value);
 console.log("likepost working??/", user_id);
-
+	
+	 
+	 
 	console.log(post_id);
 
 }
