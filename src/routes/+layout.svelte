@@ -8,7 +8,7 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<AppShell>
+<AppShell class="relative">
 	<svelte:fragment slot="sidebarLeft">
 		<div class="leftNav">
 			<LeftNav />
@@ -23,12 +23,12 @@
 
 	<!-- header -->
 	<svelte:fragment slot="pageHeader">
-		<div class="mobile z-10">
+		<div class="w-full mobile z-10 border-b-2 border-slate-500">
 			<Header />
 		</div>
 	</svelte:fragment>
 
-	<div class="flex justify-center">
+	<div class="flex my-14 md:my-0 w-full md:justify-center">
 		<slot />
 	</div>
 
@@ -50,6 +50,6 @@
 	}
 
 	.mobile {
-		@apply block md:hidden bg-inherit fixed;
+		@apply block md:hidden backdrop-blur-lg fixed;
 	}
 </style>

@@ -47,7 +47,7 @@
 	console.log('lamo', data.posts);
 </script>
 
-<div class="w-full max-w-lg flex flex-col justify-center">
+<div class="w-full md:max-w-xl flex flex-col justify-center">
 	<Post info={post1} />
 
 	<Post info={post1} />
