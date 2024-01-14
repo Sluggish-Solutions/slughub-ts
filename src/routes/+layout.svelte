@@ -4,9 +4,21 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import LeftNav from '$lib/components/LeftNav.svelte';
 	import RightNav from '$lib/components/RightNav.svelte';
+	import { AppShell, initializeStores } from '@skeletonlabs/skeleton';
+	
+	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+	
+	import CreatePost from '$components/modals/CreatePost.svelte';
+	
+	const modalRegistry: Record<string, ModalComponent> = {
+		createPost: { ref: CreatePost },
+	};
 
-	import { AppShell } from '@skeletonlabs/skeleton';	
+	initializeStores();
 </script>
+
+<Modal components={modalRegistry} />
 
 <AppShell class="relative">
 	<svelte:fragment slot="sidebarLeft">

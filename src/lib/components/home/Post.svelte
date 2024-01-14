@@ -57,7 +57,7 @@
 
 <main class="py-3 w-full">
 	<!-- avatar and name -->
-	<section class="flex items-center gap-3 px-5 py-3">
+	<section class="flex items-center gap-3 p-3">
 		<Avatar src={post.author.avatar_url} width="w-10" />
 		<h3>
 			{post.author.username} <span class="opacity-70 font-light">• {time_since}</span>
@@ -69,13 +69,13 @@
 		<img
 			src={post.img_url}
 			alt={post.description.substring(0, 50) + '...'}
-			class="max-h-[300px] sm:max-h-[500px] object-cover w-full"
+			class="h-[450px] sm:h-[600px] object-cover w-full"
 		/>
 	</section>
 
 	<!-- like, comment, share, bookmark -->
 	<section>
-		<div class="flex justify-between items-center py-3 px-5">
+		<div class="flex justify-between items-center p-3">
 			<div class="flex gap-2">
 				<!-- lucide icons, can change color, size, strokeWidth -->
 				<div>
@@ -95,7 +95,7 @@
 	</section>
 
 	<!-- likes & description -->
-	<section class="font-light flex flex-col gap-2 px-5">
+	<section class="font-light flex flex-col gap-2 px-3">
 		<strong class="font-bold block">
 			{post.likes.length} Likes
 		</strong>
