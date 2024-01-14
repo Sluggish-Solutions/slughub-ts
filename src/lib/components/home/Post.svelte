@@ -3,15 +3,18 @@
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
 
-	export let post: any;
-
-	import type { Tables } from '../../../../types/supabase.types';
-	// export let post: Tables<"posts">;
-
+	import type {PostsWithAllComments} from '../../queries/supabase'
+	// need to add user types later
+	export let post: PostsWithAllComments;
+	export let curr_user_id: string;
 	let showMore = false;
 	let showComments = false;
 	console.log(post);
 
+<<<<<<< HEAD
+	// calc time since post was created
+	let time_since = '2w';      
+=======
 	// Get the current timestamp
 	const now = new Date();
 	const created = new Date(post.created_at);
@@ -35,6 +38,7 @@
 	} else {
 		time_since = `${minutes}m`;
 	}
+>>>>>>> 0c3bab62bf05089953f1aa35c13216e4943689c8
 
 	const toggleReadMore = () => {
 		showMore = !showMore;
