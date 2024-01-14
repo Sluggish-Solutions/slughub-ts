@@ -2,9 +2,10 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
-
+	import type {Tables} from '../../../../types/supabase.types'
 	// need to add user types later
-	export let info: any;
+	export let info: Tables<"posts">;
+	export let curr_user: string;
 	let showMore = false;
 	let showComments = false;
 
@@ -40,7 +41,15 @@
 		showComments = !showComments;
 	};
 
-	
+	async function likePost () {
+		const res = await fetch('/api/likePost', {
+			method: 'POST',
+			body: JSON.stringify({
+				"user_id":curr_user.id,
+				"post_id": post.id,
+				bar
+			})
+		})
 </script>
 
 <main class="py-3 w-full">

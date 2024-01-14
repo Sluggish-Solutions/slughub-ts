@@ -9,6 +9,7 @@ import type { PageLoad } from "./$types";
 export const load: PageLoad = async ({ parent }) => {
 	const { supabase, session } = await parent();
 
+	
 	// need to get all posts
 	// const posts = await supabase
 	// 	.from("posts")
@@ -36,7 +37,7 @@ export const load: PageLoad = async ({ parent }) => {
 	//okay now we have all the posts and comments
 	 //need to organize this data somehow?
 	// we have an array of posts, and an array of comments.  
-	return { posts_w_comments  }
+	return {session,  posts_w_comments  }
 
 
 }

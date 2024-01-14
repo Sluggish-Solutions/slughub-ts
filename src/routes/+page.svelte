@@ -48,8 +48,7 @@
 </script>
 
 <div class="w-full md:max-w-xl flex flex-col justify-center">
-	<Post info={post1} />
-
+	<Post curr_user={data.session?.user} info={post1} />
 	<Post info={post1} />
 	<Post info={post1} />
 	<Post info={post1} />
