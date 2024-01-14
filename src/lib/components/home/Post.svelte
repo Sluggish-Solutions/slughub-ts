@@ -18,10 +18,10 @@
 	};
 </script>
 
-<div class="m-auto">
-	<!-- top segment: avatar and name -->
-	<section class="flex items-center">
-		<Avatar src={info.user.profile_img} />
+<main class="m-auto py-5">
+	<!-- avatar and name -->
+	<section class="flex items-center gap-3 py-2">
+		<Avatar src={info.user.profile_img} width='w-10' />
 		<h3>
 			{info.user.name}
 		</h3>
@@ -29,10 +29,10 @@
 
 	<!-- image post -->
 	<section>
-		<img src={info.details.img} alt={info.details.description} width={500} />
+		<img src={info.details.img} alt={info.details.description.substring(0,50) + "..."} width={500} />
 	</section>
 
-	<!-- interaction bar: like, comment, share, bookmark -->
+	<!-- like, comment, share, bookmark -->
 	<section>
 		<div class="flex justify-between items-center h-11 p-1">
 			<div class="left flex">
@@ -84,4 +84,11 @@
 			{/if}
 		</span>
 	</section>
-</div>
+</main>
+
+<style>
+	h3 {
+		font-weight: 600;
+		font-size: 1.2rem;
+	}
+</style>

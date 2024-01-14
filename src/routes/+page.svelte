@@ -8,7 +8,7 @@
 		details: {
 			id: 1, // post_id
 			user_id: 1,
-			img: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+			img: 'https://images.unsplash.com/photo-1682686581264-c47e25e61d95?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 			description: 'This is the first post that you will like for sure, I bet you!',
 			likes: 1023,
 			comments: [
@@ -33,19 +33,26 @@
 							'https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 					},
 					createdAt: 73854
-				},
+				}
 			],
 			created_at: '2021-10-10 10:10:10'
 		},
 		user: {
 			id: 1,
-			name: 'john',
+			name: 'harrison_ford_mustang',
 			profile_img:
-				'https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				'https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=cro'
 		}
 	};
-	console.log("lamo", data.posts)
-	
+	console.log('lamo', data.posts);
 </script>
 
-<Post info={post1} />
+<div class="w-full max-w-lg flex flex-col justify-center">
+	<Post info={post1} />
+
+	<Post info={post1} />
+	<Post info={post1} />
+	<Post info={post1} />
+	<Post info={post1} />
+	<Post info={post1} />
+</div>

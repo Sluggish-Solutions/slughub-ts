@@ -8,7 +8,7 @@
 
 </script>
 
-<nav class="bg-blue flex justify-between items-center px-2 h-12 ">
+<nav class="bg-blue flex justify-between items-center px-2 h-12 bg-slate-900">
     <div class="ml-5">
     <Home/>
     </div>
