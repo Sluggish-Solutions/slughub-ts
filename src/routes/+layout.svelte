@@ -14,7 +14,7 @@
 			<Header />
 		</div>
 
-		<main class="p-5 justify-center">
+		<main class="p-5">
 			<slot />
 		</main>
 		<div class="sm:hidden fixed bottom-0 w-full">

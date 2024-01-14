@@ -54,7 +54,7 @@
 	</section>
 
 	<!-- likes & description -->
-	<section class="font-light flex flex-col">
+	<section class="font-light flex flex-col gap-2">
 		<strong class="font-bold block">
 			{info.details.likes} Likes
 		</strong>
@@ -72,16 +72,16 @@
 			{/if}
 		</span>
 
-		<br />
-
-		{#if !showComments}
-			<button on:click={toggleComments} class="btn p-0 text-slate-300">
-				View all {info.details.comments.length} comments
-			</button>
-		{:else}
-			{#each info.details.comments as comment}
-				<Comment {comment} />
-			{/each}
-		{/if}
+		<span>
+			{#if !showComments}
+				<button on:click={toggleComments} class="btn p-0 text-slate-300">
+					View all {info.details.comments.length} comments
+				</button>
+			{:else}
+				{#each info.details.comments as comment}
+					<Comment {comment} />
+				{/each}
+			{/if}
+		</span>
 	</section>
 </div>
