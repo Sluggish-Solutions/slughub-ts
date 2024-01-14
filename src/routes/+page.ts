@@ -3,12 +3,15 @@
 //    post,
 //    user
 
+// import type { QueryData } from "@supabase/supabase-js";
 import type { PageLoad } from "./$types";
 
 // }
+
 export const load: PageLoad = async ({ parent }) => {
 	const { supabase, session } = await parent();
 
+	
 	// need to get all posts
 	// const posts = await supabase
 	// 	.from("posts")
@@ -24,9 +27,14 @@ export const load: PageLoad = async ({ parent }) => {
 	// 	.from("comments")
 	// 	.select(`*, author(*)`);
 
-	const posts_w_comments = await supabase
+	const posts_w_comments_query = supabase
 	.from("posts")
-	.select(`*, comments(*), likes(*, author(*))`)
+	.select(`*, comments(*), likes(*), author(*))`)
+
+	// type PostsWithAllData = QueryData<typeof posts_w_comments_query>;
+	
+	const posts_w_comments = await posts_w_comments_query;
+
 
 	// comments.data?.forEach(comment => {
 	// 	
@@ -36,7 +44,7 @@ export const load: PageLoad = async ({ parent }) => {
 	//okay now we have all the posts and comments
 	 //need to organize this data somehow?
 	// we have an array of posts, and an array of comments.  
-	return { posts_w_comments  }
+	return {session,  posts_w_comments: posts_w_comments.data  }
 
 
 }

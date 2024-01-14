@@ -4,10 +4,14 @@
 	import Comment from './Comment.svelte';
 
 	export let info: any;
-	export let sec: any;
+
+	import type { Tables } from '../../../../types/supabase.types';
+	// need to add user types later
+	// export let info: Tables<"posts">;
+
 	let showMore = false;
 	let showComments = false;
-	console.log(info)
+	// console.log(info);
 
 	// Get the current timestamp
 	const now = new Date();
@@ -41,7 +45,15 @@
 		showComments = !showComments;
 	};
 
-	
+	// async function likePost () {
+	// 	const res = await fetch('/api/likePost', {
+	// 		method: 'POST',
+	// 		body: JSON.stringify({
+
+	// 			"user_id":curr_user_id,
+	// 			"post_id": info.id,
+	// 		})
+	// 	})}
 </script>
 
 <main class="py-3 w-full">
