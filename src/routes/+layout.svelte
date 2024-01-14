@@ -5,7 +5,7 @@
 	import LeftNav from '$lib/components/LeftNav.svelte';
 	import RightNav from '$lib/components/RightNav.svelte';
 
-	import { AppShell } from '@skeletonlabs/skeleton';
+	import { AppShell } from '@skeletonlabs/skeleton';	
 </script>
 
 <AppShell class="relative">

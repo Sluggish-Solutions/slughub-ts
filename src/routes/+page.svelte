@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Post from '$lib/components/home/Post.svelte';
 
+	// $curr_user_id works, call anywhere it's needed
+	import { curr_user_id } from '$stores/userStore';
+	
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
 	export let data;
 
@@ -35,7 +38,7 @@
 					createdAt: 73854
 				}
 			],
-			created_at: '2021-10-10 10:10:10'
+			created_at: '2024-01-14T12:00:00Z'
 		},
 		user: {
 			id: 1,
@@ -44,15 +47,10 @@
 				'https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=cro'
 		}
 	};
-	console.log('lamo', data.posts);
 </script>
 
 <div class="w-full md:max-w-xl flex flex-col justify-center">
-	<Post info={post1} />
-
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
+	{#each data.posts_w_comments || [] as post}
+		<Post {post} />
+	{/each}
 </div>

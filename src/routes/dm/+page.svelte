@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import { ListBoxItem, ListBox } from '@skeletonlabs/skeleton';
-	import {Conversation} from '$lib/components/dm/Conversation.svelte';
+	import Conversation from '$lib/components/dm/Conversation.svelte';
 
 	// expecting data of conversations from the db
 	export let data;
