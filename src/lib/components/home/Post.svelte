@@ -4,8 +4,10 @@
 	import Comment from './Comment.svelte';
 
 	export let info: any;
+	export let sec: any;
 	let showMore = false;
 	let showComments = false;
+	console.log(info)
 
 	// Get the current timestamp
 	const now = new Date();
