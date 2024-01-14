@@ -5,7 +5,7 @@
 	import type {Tables} from '../../../../types/supabase.types'
 	// need to add user types later
 	export let info: Tables<"posts">;
-	export let curr_user: string;
+	export let curr_user_id: string;
 	let showMore = false;
 	let showComments = false;
 
@@ -45,9 +45,9 @@
 		const res = await fetch('/api/likePost', {
 			method: 'POST',
 			body: JSON.stringify({
-				"user_id":curr_user.id,
+
+				"user_id":curr_user_id,
 				"post_id": info.id,
-				bar
 			})
 		})
 </script>

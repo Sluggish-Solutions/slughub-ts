@@ -3,6 +3,7 @@
 //    post,
 //    user
 
+import type { QueryData } from "@supabase/supabase-js";
 import type { PageLoad } from "./$types";
 
 // }
@@ -25,9 +26,12 @@ export const load: PageLoad = async ({ parent }) => {
 	// 	.from("comments")
 	// 	.select(`*, author(*)`);
 
-	const posts_w_comments = await supabase
+	const posts_w_comments = supabase
 	.from("posts")
-	.select(`*, comments(*), likes(*, author(*))`)
+	.select(`*, comments(*), likes(*), author(*))`)
+
+	type PostsWithAllData = QueryData<typeof posts_w_comments>;
+
 
 	// comments.data?.forEach(comment => {
 	// 	
