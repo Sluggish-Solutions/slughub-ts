@@ -5,7 +5,7 @@
     import SideNav from '$lib/components/SideNav.svelte';
 </script>
 
-<div class="flex justify-between">
+<div class="flex justify-center">
 	<div class="sticky top-0 z-20 py-3 px-10 bg-black hidden md:block">
 		<SideNav/>
 	</div>
@@ -14,7 +14,7 @@
 			<Header />
 		</div>
 
-		<main class="p-5">
+		<main class="p-5 justify-center">
 			<slot />
 		</main>
 		<div class="sm:hidden fixed bottom-0 w-full">
