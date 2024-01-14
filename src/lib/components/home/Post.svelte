@@ -9,6 +9,9 @@
 	let showMore = false;
 	let showComments = false;
 
+	// calc time since post was created
+	let time_since = '2w';
+
 	const toggleReadMore = () => {
 		showMore = !showMore;
 	};
@@ -18,49 +21,49 @@
 	};
 </script>
 
-<div class="m-auto">
-	<!-- top segment: avatar and name -->
-	<section class="flex items-center">
-		<Avatar src={info.user.profile_img} />
+<main class="py-3 w-full">
+	<!-- avatar and name -->
+	<section class="flex items-center gap-3 px-5 py-3">
+		<Avatar src={info.user.profile_img} width="w-10" />
 		<h3>
-			{info.user.name}
+			{info.user.name} <span class="opacity-70">• {time_since}</span>
 		</h3>
 	</section>
 
 	<!-- image post -->
 	<section>
-		<img src={info.details.img} alt={info.details.description} width={500} />
+		<img src={info.details.img} alt={info.details.description.substring(0, 50) + '...'} class="max-h-[300px] sm:max-h-[500px] object-cover w-full" />
 	</section>
 
-	<!-- interaction bar: like, comment, share, bookmark -->
+	<!-- like, comment, share, bookmark -->
 	<section>
-		<div class="flex justify-between items-center h-11 p-1">
-			<div class="left flex">
+		<div class="flex justify-between items-center py-3 px-5">
+			<div class="flex gap-2">
 				<!-- lucide icons, can change color, size, strokeWidth -->
-				<div class="p-1">
+				<div>
 					<Heart />
 				</div>
-				<div class="p-1">
+				<div>
 					<MessageCircle />
 				</div>
-				<div class="p-1">
+				<div>
 					<Send />
 				</div>
 			</div>
-			<div class="right p-1">
+			<div>
 				<Bookmark />
 			</div>
 		</div>
 	</section>
 
 	<!-- likes & description -->
-	<section class="font-light flex flex-col gap-2">
+	<section class="font-light flex flex-col gap-2 px-5">
 		<strong class="font-bold block">
 			{info.details.likes} Likes
 		</strong>
 
 		<span>
-			<strong class="font-bold">{info.user.name}</strong>
+			<h3 class="font-bold">{info.user.name}</h3>
 
 			{#if !showMore}
 				{info.details.description.substring(0, 50)} ...<button
@@ -84,4 +87,16 @@
 			{/if}
 		</span>
 	</section>
-</div>
+</main>
+
+<style>
+	h3 {
+		font-weight: 600;
+
+		@apply md:text-lg inline font-semibold;
+	}
+
+	span {
+		@apply md:text-lg;
+	}
+</style>

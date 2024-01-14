@@ -1,53 +1,55 @@
 <script lang="ts">
-    import '../app.postcss';
-    import Header from '$lib/components/Header.svelte';
-    import Footer from '$lib/components/Footer.svelte';
-    import SideNav from '$lib/components/SideNav.svelte';
+	import '../app.postcss';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import LeftNav from '$lib/components/LeftNav.svelte';
+	import RightNav from '$lib/components/RightNav.svelte';
+
+	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<div class='relative h=[100vh]'>
+<AppShell class="relative">
+	<svelte:fragment slot="sidebarLeft">
+		<div class="leftNav">
+			<LeftNav />
+		</div>
+	</svelte:fragment>
 
-<main class="flex h-[100vh]">
-	<!-- left sidebar -->
-	<section class='left-nav'>
-		<SideNav/>
-	</section>
+	<svelte:fragment slot="sidebarRight">
+		<div class="rightNav">
+			<RightNav />
+		</div>
+	</svelte:fragment>
 
-	<!-- main content -->
-	<section class="w-full max-w-[50%] mx-auto h-[100vh]">
-		<!-- top bar -->
-		<div class="mobile-nav">
+	<!-- header -->
+	<svelte:fragment slot="pageHeader">
+		<div class="mobile z-10 border-b-2 border-slate-500">
 			<Header />
 		</div>
+	</svelte:fragment>
 
-		<!-- posts container -->
-		<main class="p-5">
-			<slot />
-		</main>
+	<div class="flex my-14 md:my-0 w-full md:justify-center">
+		<slot />
+	</div>
 
-		<!-- bottom nav bar -->
-		<div class="mobile-nav bottom-0">
+	<!-- footer -->
+	<svelte:fragment slot="pageFooter">
+		<div class="mobile border-t-2 border-slate-500 bottom-0">
 			<Footer />
 		</div>
-	</section>
-
-	<!-- right section -->
-	<section class="right-nav">
-		right section goes here
-	</section>
-</main>
-</div>
+	</svelte:fragment>
+</AppShell>
 
 <style>
-	.left-nav {
+	.leftNav {
 		@apply hidden md:block;
 	}
 
-	.right-nav {
+	.rightNav {
 		@apply hidden lg:block;
 	}
-	
-	.mobile-nav {
-		@apply block md:hidden absolute bg-slate-900;
+
+	.mobile {
+		@apply block md:hidden w-full bg-slate-900 fixed;
 	}
 </style>
