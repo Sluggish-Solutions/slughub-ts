@@ -14,5 +14,5 @@
     <LeftNavEntry Icon={PlusSquare} label="Post" />
     <LeftNavEntry Icon={Send} label="Messages" />
     <LeftNavEntry Icon={Heart} label="Liked" />
-    <LeftNavEntry Icon={User} label="Profile" />
+    <LeftNavEntry Icon={User} label="Profile" href="/profile"/>
 </nav>

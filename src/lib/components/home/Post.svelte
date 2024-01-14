@@ -10,7 +10,7 @@
 	let showComments = false;
 
 	// calc time since post was created
-	let time_since = '2w';
+	let time_since = '2w';      
 
 	const toggleReadMore = () => {
 		showMore = !showMore;
