@@ -1,4 +1,5 @@
-mport { redirect } from '@sveltejs/kit';
+
+import { redirect } from '@sveltejs/kit';
 import type { LayoutLoad } from './$types';
 export const ssr = false;
 export const load = (async ({ parent }) => {
@@ -35,7 +36,7 @@ export const load = (async ({ parent }) => {
         .or(`user1.eq.${session?.user.id}, user2.eq.${session?.user.id}`);
     console.log(conversations);
     
-    return {conversations}
+    return {conversations: conversations}
 
 
 
