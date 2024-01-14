@@ -234,22 +234,25 @@ export interface Database {
       posts: {
         Row: {
           author: string
-          body: string
+          comments: Json[]
           created_at: string
+          description: string
           id: string
           img_url: string | null
         }
         Insert: {
           author: string
-          body: string
+          comments?: Json[]
           created_at?: string
+          description: string
           id?: string
           img_url?: string | null
         }
         Update: {
           author?: string
-          body?: string
+          comments?: Json[]
           created_at?: string
+          description?: string
           id?: string
           img_url?: string | null
         }

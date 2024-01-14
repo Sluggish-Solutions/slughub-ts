@@ -46,7 +46,7 @@
 			method: 'POST',
 			body: JSON.stringify({
 				"user_id":curr_user.id,
-				"post_id": post.id,
+				"post_id": info.id,
 				bar
 			})
 		})
