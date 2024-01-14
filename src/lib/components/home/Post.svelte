@@ -3,19 +3,18 @@
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
 
-	export let info: any;
+	export let post: any;
 
 	import type { Tables } from '../../../../types/supabase.types';
-	// need to add user types later
-	// export let info: Tables<"posts">;
+	// export let post: Tables<"posts">;
 
 	let showMore = false;
 	let showComments = false;
-	// console.log(info);
+	console.log(post);
 
 	// Get the current timestamp
 	const now = new Date();
-	const created = new Date(info.details.created_at);
+	const created = new Date(post.created_at);
 
 	const timeDifference = now.getTime() - created.getTime();
 
@@ -51,7 +50,7 @@
 	// 		body: JSON.stringify({
 
 	// 			"user_id":curr_user_id,
-	// 			"post_id": info.id,
+	// 			"post_id": post.id,
 	// 		})
 	// 	})}
 </script>
@@ -59,17 +58,17 @@
 <main class="py-3 w-full">
 	<!-- avatar and name -->
 	<section class="flex items-center gap-3 px-5 py-3">
-		<Avatar src={info.user.profile_img} width="w-10" />
+		<Avatar src={post.author.avatar_url} width="w-10" />
 		<h3>
-			{info.user.name} <span class="opacity-70 font-light">• {time_since}</span>
+			{post.author.username} <span class="opacity-70 font-light">• {time_since}</span>
 		</h3>
 	</section>
 
 	<!-- image post -->
 	<section>
 		<img
-			src={info.details.img}
-			alt={info.details.description.substring(0, 50) + '...'}
+			src={post.img_url}
+			alt={post.description.substring(0, 50) + '...'}
 			class="max-h-[300px] sm:max-h-[500px] object-cover w-full"
 		/>
 	</section>
@@ -98,29 +97,29 @@
 	<!-- likes & description -->
 	<section class="font-light flex flex-col gap-2 px-5">
 		<strong class="font-bold block">
-			{info.details.likes} Likes
+			{post.likes.length} Likes
 		</strong>
 
 		<span>
-			<h3 class="font-bold">{info.user.name}</h3>
+			<h3 class="font-bold">{post.author.username}</h3>
 
 			{#if !showMore}
-				{info.details.description.substring(0, 50)} ...<button
-					on:click={toggleReadMore}
-					class="btn p-0 text-slate-300">more</button
-				>
+				{post.description.substring(0, 50)}
+				{#if post.description.substring > 50}
+					...<button on:click={toggleReadMore} class="btn p-0 text-slate-300">more</button>
+				{/if}
 			{:else}
-				{info.details.description}
+				{post.description}
 			{/if}
 		</span>
 
 		<span>
 			{#if !showComments}
 				<button on:click={toggleComments} class="btn p-0 text-slate-300">
-					View all {info.details.comments.length} comments
+					View all {post.comments.length} comments
 				</button>
 			{:else}
-				{#each info.details.comments as comment}
+				{#each post.comments as comment}
 					<Comment {comment} />
 				{/each}
 			{/if}

@@ -7,7 +7,6 @@
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
 	export let data;
 
-
 	let post1 = {
 		details: {
 			id: 1, // post_id
@@ -48,14 +47,10 @@
 				'https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=cro'
 		}
 	};
-	console.log('lamo', data.posts_w_comments, data.session?.user.id);
 </script>
 
 <div class="w-full md:max-w-xl flex flex-col justify-center">
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
-	<Post info={post1} />
+	{#each data.posts_w_comments || [] as post}
+		<Post {post} />
+	{/each}
 </div>
