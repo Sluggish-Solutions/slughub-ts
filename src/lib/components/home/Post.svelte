@@ -3,7 +3,6 @@
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
 
-	// need to add user types later
 	export let info: any;
 	let showMore = false;
 	let showComments = false;
