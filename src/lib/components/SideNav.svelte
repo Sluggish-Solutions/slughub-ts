@@ -12,7 +12,7 @@
     <SideNavEntry Icon={Home} label="Home" />
     <SideNavEntry Icon={Search} label="Search" />
     <SideNavEntry Icon={PlusSquare} label="Post" />
-    <SideNavEntry Icon={Send} label="Messages" />
+    <SideNavEntry Icon={Send} href="/dm/" label="Messages" />
     <SideNavEntry Icon={Heart} label="Liked" />
     <SideNavEntry Icon={User} label="Profile" />
 </nav>
