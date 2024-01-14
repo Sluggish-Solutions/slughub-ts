@@ -5,7 +5,7 @@
 
 // import type { QueryData } from "@supabase/supabase-js";
 import type { PageLoad } from "./$types";
-import { Post, Comment, Like, User } from "./types"; // Import necessary types
+// import { Post, Comment, Like, User } from "./types"; // Import necessary types
 import type { PostsWithAllComments } from "$lib/queries/supabase";
 
 // }
