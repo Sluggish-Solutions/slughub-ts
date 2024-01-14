@@ -23,7 +23,7 @@
 
 	<!-- header -->
 	<svelte:fragment slot="pageHeader">
-		<div class="w-full mobile z-10 border-b-2 border-slate-500">
+		<div class="mobile z-10 border-b-2 border-slate-500">
 			<Header />
 		</div>
 	</svelte:fragment>
@@ -34,7 +34,7 @@
 
 	<!-- footer -->
 	<svelte:fragment slot="pageFooter">
-		<div class="mobile bottom-0">
+		<div class="mobile border-t-2 border-slate-500 bottom-0">
 			<Footer />
 		</div>
 	</svelte:fragment>
@@ -50,6 +50,6 @@
 	}
 
 	.mobile {
-		@apply block md:hidden backdrop-blur-lg fixed;
+		@apply block md:hidden w-full bg-slate-900 fixed;
 	}
 </style>
