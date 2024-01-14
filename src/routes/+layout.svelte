@@ -14,9 +14,9 @@
 			<Header />
 		</div>
 
-		<div class="flex">
+		<main class="p-5">
 			<slot />
-		</div>
+		</main>
 		<div class="sm:hidden fixed bottom-0 w-full">
 			<Footer />
 		</div>

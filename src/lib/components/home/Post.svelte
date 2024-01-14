@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
+	import Comment from './Comment.svelte';
 
 	// need to add user types later
 	export let info: any;
@@ -53,20 +54,25 @@
 	</section>
 
 	<!-- likes & description -->
-	<section class="font-light">
+	<section class="font-light flex flex-col">
 		<strong class="font-bold block">
 			{info.details.likes} Likes
 		</strong>
-		<strong class="font-bold">{info.user.name}</strong>
 
-		{#if !showMore}
-			{info.details.description.substring(0, 50)} ...<button
-				on:click={toggleReadMore}
-				class="btn p-0 text-slate-300">more</button
-			>
-		{:else}
-			{info.details.description}
-		{/if}
+		<span>
+			<strong class="font-bold">{info.user.name}</strong>
+
+			{#if !showMore}
+				{info.details.description.substring(0, 50)} ...<button
+					on:click={toggleReadMore}
+					class="btn p-0 text-slate-300">more</button
+				>
+			{:else}
+				{info.details.description}
+			{/if}
+		</span>
+
+		<br />
 
 		{#if !showComments}
 			<button on:click={toggleComments} class="btn p-0 text-slate-300">
@@ -74,26 +80,8 @@
 			</button>
 		{:else}
 			{#each info.details.comments as comment}
-				<p>
-					{comment}
-				</p>
+				<Comment {comment} />
 			{/each}
 		{/if}
 	</section>
 </div>
-
-<!-- <div class="post">
-	{#if showMore}
-		<div class="more-content">
-			<p>Additional text goes here...</p>
-		</div>
-	{/if}
-</div>
-
-<button on:click={toggleReadMore}>
-	{#if showMore}
-		Read less
-	{/if}
-	{!showMore} Read more
-</button>
-<div /> -->
