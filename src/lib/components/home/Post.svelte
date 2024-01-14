@@ -10,6 +10,9 @@
 	let showComments = false;
 	console.log(post);
 
+	// calc time since post was created
+	 
+
 	// Get the current timestamp
 	const now = new Date();
 	const created = new Date(post.created_at);
