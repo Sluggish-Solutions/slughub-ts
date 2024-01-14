@@ -31,5 +31,4 @@
 	<LeftNavEntry Icon={Send} label="Messages" href="/messages" />
 	<LeftNavEntry Icon={Heart} label="Liked" href="/liked" />
 	<LeftNavEntry Icon={User} label="Profile" href="/profile" />
->>>>>>> 0c3bab62bf05089953f1aa35c13216e4943689c8
 </nav>

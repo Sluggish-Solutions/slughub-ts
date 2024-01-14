@@ -5,16 +5,11 @@
 
 	import type {PostsWithAllComments} from '../../queries/supabase'
 	// need to add user types later
-	export let post: PostsWithAllComments;
-	export let curr_user_id: string;
+	export let post: any;
 	let showMore = false;
 	let showComments = false;
 	console.log(post);
 
-<<<<<<< HEAD
-	// calc time since post was created
-	let time_since = '2w';      
-=======
 	// Get the current timestamp
 	const now = new Date();
 	const created = new Date(post.created_at);
@@ -26,6 +21,7 @@
 	const minutes = Math.floor(seconds / 60);
 	const hours = Math.floor(minutes / 60);
 	const days = Math.floor(hours / 24);
+	console.log(post)
 
 	let time_since = '1w';
 
@@ -38,7 +34,6 @@
 	} else {
 		time_since = `${minutes}m`;
 	}
->>>>>>> 0c3bab62bf05089953f1aa35c13216e4943689c8
 
 	const toggleReadMore = () => {
 		showMore = !showMore;
@@ -109,7 +104,7 @@
 
 			{#if !showMore}
 				{post.description.substring(0, 50)}
-				{#if post.description.substring > 50}
+				{#if post.description.length > 50}
 					...<button on:click={toggleReadMore} class="btn p-0 text-slate-300">more</button>
 				{/if}
 			{:else}
