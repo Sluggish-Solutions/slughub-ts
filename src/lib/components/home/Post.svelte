@@ -5,7 +5,6 @@
 
 	// need to add user types later
 	export let info: any;
-
 	let showMore = false;
 	let showComments = false;
 
@@ -19,6 +18,8 @@
 	const toggleComments = () => {
 		showComments = !showComments;
 	};
+
+	
 </script>
 
 <main class="py-3 w-full">
