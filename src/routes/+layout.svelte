@@ -5,39 +5,49 @@
     import SideNav from '$lib/components/SideNav.svelte';
 </script>
 
-<div class="flex justify-center">
+<div class='relative h=[100vh]'>
+
+<main class="flex h-[100vh]">
 	<!-- left sidebar -->
-	<section class="h-[100vh] z-20 hidden md:block">
+	<section class='left-nav'>
 		<SideNav/>
 	</section>
 
 	<!-- main content -->
-	<section>
-		<div class="side-nav sticky top-0 z-20 p-4 bg-black sm:hidden">
+	<section class="w-full max-w-[50%] mx-auto h-[100vh]">
+		<!-- top bar -->
+		<div class="mobile-nav">
 			<Header />
 		</div>
 
+		<!-- posts container -->
 		<main class="p-5">
 			<slot />
 		</main>
 
-		<div class="sm:hidden fixed bottom-0 w-full">
+		<!-- bottom nav bar -->
+		<div class="mobile-nav bottom-0">
 			<Footer />
 		</div>
 	</section>
 
 	<!-- right section -->
-	<section class="side-nav">
+	<section class="right-nav">
 		right section goes here
 	</section>
+</main>
 </div>
 
 <style>
-	section {
-		@apply lg:w-1/3;
+	.left-nav {
+		@apply hidden md:block;
 	}
 
-	.side-nav {
+	.right-nav {
 		@apply hidden lg:block;
+	}
+	
+	.mobile-nav {
+		@apply block md:hidden absolute bg-slate-900;
 	}
 </style>
