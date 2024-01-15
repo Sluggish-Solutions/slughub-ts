@@ -34,9 +34,10 @@
 		let img_data = localStorage.getItem('userImage');
 		
 		let api_call = await createPost(img_data, desciption, );
-			
-	}
 
+		base64Image = '';
+		descValue = '';
+	}
 
 </script>
 
