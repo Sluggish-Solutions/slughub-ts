@@ -2,17 +2,12 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
-
-	import type {PostsWithAllComments} from '../../queries/supabase'
+	import { toggleLikePost } from '$stores/postStore'
+	import type { PostsWithAllComments } from '../../queries/supabase';
 	// need to add user types later
-	export let post: PostsWithAllComments;
-	export let curr_user_id: string;
+	export let post: any;
 	let showMore = false;
 	let showComments = false;
-	console.log(post);
-
-	// calc time since post was created
-	 
 
 	// Get the current timestamp
 	const now = new Date();
@@ -38,7 +33,6 @@
 		time_since = `${minutes}m`;
 	}
 
-
 	const toggleReadMore = () => {
 		showMore = !showMore;
 	};
@@ -47,21 +41,13 @@
 		showComments = !showComments;
 	};
 
-	// async function likePost () {
-	// 	const res = await fetch('/api/likePost', {
-	// 		method: 'POST',
-	// 		body: JSON.stringify({
-
-	// 			"user_id":curr_user_id,
-	// 			"post_id": post.id,
-	// 		})
-	// 	})}
 </script>
 
 <main class="py-3 w-full">
 	<!-- avatar and name -->
 	<section class="flex items-center gap-3 p-3">
 		<Avatar src={post.author.avatar_url} width="w-10" />
+
 		<h3>
 			{post.author.username} <span class="opacity-70 font-light">• {time_since}</span>
 		</h3>
@@ -72,7 +58,7 @@
 		<img
 			src={post.img_url}
 			alt={post.description.substring(0, 50) + '...'}
-			class="h-[450px] sm:h-[600px] object-cover w-full"
+			class="h-[450px] sm:h-[600px] object-cover w-full md:rounded-md"
 		/>
 	</section>
 
@@ -81,9 +67,11 @@
 		<div class="flex justify-between items-center p-3">
 			<div class="flex gap-2">
 				<!-- lucide icons, can change color, size, strokeWidth -->
-				<div>
-					<Heart />
-				</div>
+				<button on:click|preventDefault={()=>{toggleLikePost(post.id)}}>
+					<div>
+						<Heart />
+					</div>
+				</button>
 				<div>
 					<MessageCircle />
 				</div>
@@ -108,7 +96,7 @@
 
 			{#if !showMore}
 				{post.description.substring(0, 50)}
-				{#if post.description.substring > 50}
+				{#if post.description.length > 50}
 					...<button on:click={toggleReadMore} class="btn p-0 text-slate-300">more</button>
 				{/if}
 			{:else}

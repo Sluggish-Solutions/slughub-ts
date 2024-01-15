@@ -27,11 +27,11 @@
 		</div>
 	</svelte:fragment>
 
-	<svelte:fragment slot="sidebarRight">
+	<!-- <svelte:fragment slot="sidebarRight">
 		<div class="rightNav">
 			<RightNav />
 		</div>
-	</svelte:fragment>
+	</svelte:fragment> -->
 
 	<!-- header -->
 	<svelte:fragment slot="pageHeader">
@@ -40,7 +40,7 @@
 		</div>
 	</svelte:fragment>
 
-	<div class="flex my-14 md:my-0 w-full md:justify-center">
+	<div class="flex my-16 md:my-0 w-full lg:justify-center">
 		<slot />
 	</div>
 
