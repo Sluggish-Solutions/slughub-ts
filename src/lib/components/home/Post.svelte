@@ -2,13 +2,12 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
-
-	import type {PostsWithAllComments} from '../../queries/supabase'
+	import {likePost} from '$stores/postStore'
+	import type { PostsWithAllComments } from '../../queries/supabase';
 	// need to add user types later
 	export let post: any;
 	let showMore = false;
 	let showComments = false;
-	console.log(post)
 
 	// Get the current timestamp
 	const now = new Date();
@@ -57,6 +56,7 @@
 	<!-- avatar and name -->
 	<section class="flex items-center gap-3 p-3">
 		<Avatar src={post.author.avatar_url} width="w-10" />
+
 		<h3>
 			{post.author.username} <span class="opacity-70 font-light">• {time_since}</span>
 		</h3>
@@ -76,9 +76,11 @@
 		<div class="flex justify-between items-center p-3">
 			<div class="flex gap-2">
 				<!-- lucide icons, can change color, size, strokeWidth -->
-				<div>
-					<Heart />
-				</div>
+				<button on:click|preventDefault={()=>{likePost(post.id)}}>
+					<div>
+						<Heart />
+					</div>
+				</button>
 				<div>
 					<MessageCircle />
 				</div>
