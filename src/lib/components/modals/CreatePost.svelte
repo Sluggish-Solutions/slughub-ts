@@ -14,7 +14,6 @@
 			files = e.target.files;
 
 			const selectedImage = e.target.files[0];
-			console.log(files, selectedImage);
 
 			const reader = new FileReader();
 
