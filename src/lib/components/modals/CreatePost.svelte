@@ -2,7 +2,7 @@
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import { FileDropzone, FileButton } from '@skeletonlabs/skeleton';
 	import { FileUp } from 'lucide-svelte';
-
+	import {createPost} from '$stores/postStore'
 	const modalStore = getModalStore();
 
 	let files: FileList;
@@ -22,6 +22,8 @@
 			};
 
 			reader.readAsDataURL(selectedImage);
+
+
 		}
 	};
 </script>
