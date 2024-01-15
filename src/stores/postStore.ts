@@ -21,9 +21,6 @@ export async function GET(event: any) {
 export const likePost = async (post_id: string) => {
 	let user_id = ''
 	curr_user_id.subscribe((value) => user_id = value);
-	console.log("curr_user", curr_user_id)
-	console.log("likepost working??/", user_id);
-
 
 	const res = await fetch('/api/likePost', {
 		method: 'POST',
@@ -32,8 +29,4 @@ export const likePost = async (post_id: string) => {
 			"post_id": post_id,
 		})
 	})
-	console.log("returned", res);
-
-	console.log(post_id);
-
 }
