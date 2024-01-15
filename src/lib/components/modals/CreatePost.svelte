@@ -7,7 +7,7 @@
 
 	let files: FileList;
 	let uploaded = false;
-	$: img_src = ''
+	$: base64Image = ''
 
 	const handleFileChange = (e: Event) => {
 		if (e.target) {
@@ -19,10 +19,9 @@
 			const reader = new FileReader();
 
 			reader.onload = (event) => {
-				const base64Image = event.target.result;
+				base64Image = event.target.result;
 				// Store the Base64 image in local storage
 				localStorage.setItem('userImage', base64Image);
-				img_src = base64Image
 			};
 
 			reader.readAsDataURL(selectedImage);
@@ -36,7 +35,7 @@
 			<!-- svelte-ignore a11y-img-redundant-alt -->
 			<div class="flex flex-col gap-3 p-3">
 				<img
-					src={img_src}
+					src={base64Image}
 					alt="Uploaded image"
 					class="md:max-h-[500px] md:max-w-[700px]"
 				/>
