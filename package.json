@@ -51,6 +51,7 @@
     "@sveltejs/adapter-vercel": "^4.0.4",
     "base64-arraybuffer": "^1.0.2",
     "highlight.js": "11.9.0",
-    "lucide-svelte": "^0.309.0"
+    "lucide-svelte": "^0.309.0",
+    "uuid": "^9.0.1"
   }
 }
