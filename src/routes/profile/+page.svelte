@@ -1,6 +1,12 @@
 <script lang="ts">
 	import Profile from '$lib/components/Profile.svelte';
     import Post from "$lib/components/home/Post.svelte";
+<<<<<<< HEAD
+    import { curr_user_id } from '$stores/userStore';
+    let x=$curr_user_id;
+
+    
+=======
 	let John = 
     {
         username:"John",
@@ -19,8 +25,8 @@
 
     })
 
+>>>>>>> 447f699ba958d3e0cab8f55a7d665bb55980997b
 </script>
 
-<Profile userData={John}/>
 
-
+<!-- <Profile {}/> -->

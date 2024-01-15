@@ -13,6 +13,6 @@
     <SideNavEntry Icon={Search} label="Search" />
     <SideNavEntry Icon={PlusSquare} label="Post" />
     <SideNavEntry Icon={Send} href="/dm/" label="Messages" />
-    <SideNavEntry Icon={Heart} label="Liked" />
+    <SideNavEntry Icon={Heart} label="Liked" href="/Liked" />
     <SideNavEntry Icon={User} label="Profile" />
 </nav>
