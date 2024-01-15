@@ -28,7 +28,7 @@
 	<button on:click={createPost}>
 		<NavEntry Icon={PlusSquare} label="Create" />
 	</button>
-	<NavEntry Icon={Send} label="Messages" href="/messages" />
+	<!-- <NavEntry Icon={Send} label="Messages" href="/messages" /> -->
 	<NavEntry Icon={Heart} label="Liked" href="/liked" />
 	<NavEntry Icon={User} label="Profile" href="/profile" />
 </nav>

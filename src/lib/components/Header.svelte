@@ -10,6 +10,6 @@
 	</div>
 
 	<div class="p-2">
-		<NavEntry Icon={Send} label="Messages" href="/messages" />
+		<!-- <NavEntry Icon={Send} label="Messages" href="/messages" /> -->
 	</div>
 </nav>
