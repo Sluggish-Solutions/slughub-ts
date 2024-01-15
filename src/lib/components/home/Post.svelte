@@ -2,7 +2,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { Heart, MessageCircle, Send, Bookmark } from 'lucide-svelte';
 	import Comment from './Comment.svelte';
-	import {likePost} from '$stores/postStore'
+	import { toggleLikePost } from '$stores/postStore'
 	import type { PostsWithAllComments } from '../../queries/supabase';
 	// need to add user types later
 	export let post: any;
@@ -41,15 +41,6 @@
 		showComments = !showComments;
 	};
 
-	// async function likePost () {
-	// 	const res = await fetch('/api/likePost', {
-	// 		method: 'POST',
-	// 		body: JSON.stringify({
-
-	// 			"user_id":curr_user_id,
-	// 			"post_id": post.id,
-	// 		})
-	// 	})}
 </script>
 
 <main class="py-3 w-full">
@@ -76,7 +67,7 @@
 		<div class="flex justify-between items-center p-3">
 			<div class="flex gap-2">
 				<!-- lucide icons, can change color, size, strokeWidth -->
-				<button on:click|preventDefault={()=>{likePost(post.id)}}>
+				<button on:click|preventDefault={()=>{toggleLikePost(post.id)}}>
 					<div>
 						<Heart />
 					</div>

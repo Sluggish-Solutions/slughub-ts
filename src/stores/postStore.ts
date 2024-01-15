@@ -18,15 +18,17 @@ export async function GET(event: any) {
 
 // /api/newsletter POST
 // have the function in here do a post request to the server, and then the server updates the supabase db
-export const likePost = async (post_id: string) => {
+export const toggleLikePost = async (post_id: string) => {
 	let user_id = ''
 	curr_user_id.subscribe((value) => user_id = value);
 
-	const res = await fetch('/api/likePost', {
+	const res = await fetch('/api/toggleLikePost', {
 		method: 'POST',
 		body: JSON.stringify({
 			"user_id": user_id,
 			"post_id": post_id,
 		})
 	})
+	const response = await res.json()
+	console.log("response from server for like", response);
 }
