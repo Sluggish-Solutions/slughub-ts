@@ -42,7 +42,7 @@ export const postComment = async (post_id: string, comment_body: string) => {
 export const createPost = async (image: any , body: string) => {
 	let user_id = ''
 	curr_user_id.subscribe((value) => user_id = value);
-
+	console.log("image", image)
 	const res = await fetch('/api/createPost', {
 		method: 'POST',
 		body: JSON.stringify({
