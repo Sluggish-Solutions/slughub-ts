@@ -2,15 +2,15 @@
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import { FileDropzone, FileButton } from '@skeletonlabs/skeleton';
 	import { FileUp } from 'lucide-svelte';
-	import {createPost} from '$stores/postStore'
-	import {curr_user_id} from '$stores/userStore'
+	import { createPost } from '$stores/postStore';
+	import { curr_user_id } from '$stores/userStore';
 	const modalStore = getModalStore();
 
 	let files: FileList;
 	$: base64Image = '';
 	let descValue = '';
 
-	const handleFileChange = async(e: Event) => {
+	const handleFileChange = async (e: Event) => {
 		if (e.target) {
 			files = e.target.files;
 
@@ -24,33 +24,34 @@
 
 			reader.readAsDataURL(selectedImage);
 		}
-
-		await submitPost("djaowjdoaijdoiwajd");
 	};
 
-
-	const submitPost = async(desciption: string) =>{
-
+	const submitPost = async () => {
 		let img_data = localStorage.getItem('userImage');
-		
-		let api_call = await createPost(img_data, desciption, );
 
+		let api_call = await createPost(img_data, descValue);
+
+		resetForm();
+
+		modalStore.close();
+	};
+
+	const resetForm = () => {
 		base64Image = '';
 		descValue = '';
-	}
-
+	};
 </script>
 
 {#if $modalStore[0]}
 	<main class="w-[100vw] h-[100vh] flex justify-center items-center backdrop-blur-md">
-		<form on:submit={async() => {submitPost}}>
+		<form on:submit|preventDefault={submitPost}>
 			{#if files && files[0]}
 				<!-- svelte-ignore a11y-img-redundant-alt -->
 				<div class="flex flex-col gap-3 p-3">
 					<img
 						src={base64Image}
 						alt="Uploaded image"
-						class="max-w-[300px] max-h-[500px] md:max-w-[500px] md:max-h-[500px]"
+						class="max-w-[300px] max-h-[300px] md:max-w-[500px] md:max-h-[400px]"
 					/>
 
 					<FileButton name="files" on:change={handleFileChange}>Upload new Image</FileButton>
