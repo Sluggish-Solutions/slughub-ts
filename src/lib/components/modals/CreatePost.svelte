@@ -7,8 +7,8 @@
 	const modalStore = getModalStore();
 
 	let files: FileList;
-	let uploaded = false;
-	$: base64Image = ''
+	$: base64Image = '';
+	let descValue = '';
 
 	const handleFileChange = async(e: Event) => {
 		if (e.target) {
@@ -20,12 +20,9 @@
 
 			reader.onload = (event) => {
 				base64Image = event.target.result;
-				// Store the Base64 image in local storage
-				localStorage.setItem('userImage', base64Image);
 			};
 
 			reader.readAsDataURL(selectedImage);
-				
 		}
 
 		await submitPost("djaowjdoaijdoiwajd");
@@ -44,35 +41,29 @@
 </script>
 
 {#if $modalStore[0]}
-	<main class="w-[80vw] h-[80vh] flex justify-center items-center backdrop-blur-md">
-		{#if files && files[0]}
-			<!-- svelte-ignore a11y-img-redundant-alt -->
-			<div class="flex flex-col gap-3 p-3">
-				<img
-					src={base64Image}
-					alt="Uploaded image"
-					class="md:max-h-[500px] md:max-w-[700px]"
-				/>
+	<main class="w-[100vw] h-[100vh] flex justify-center items-center backdrop-blur-md">
+		<form on:submit={async() => {submitPost}}>
+			{#if files && files[0]}
+				<!-- svelte-ignore a11y-img-redundant-alt -->
+				<div class="flex flex-col gap-3 p-3">
+					<img
+						src={base64Image}
+						alt="Uploaded image"
+						class="max-w-[300px] max-h-[500px] md:max-w-[500px] md:max-h-[500px]"
+					/>
 
-				<FileButton name="files" on:change={handleFileChange}>Upload new Image</FileButton>
-			</div>
-		{:else}
-			<FileButton name="files" on:change={handleFileChange}>Upload an Image</FileButton>
-		{/if}
-		<!-- {#if uploaded}
-			{files[0].name}
-		{:else}
-			<FileDropzone name="files" bind:files on:change={onChangeHandler}>
-				<svelte:fragment slot="lead"><FileUp /></svelte:fragment>
-				<svelte:fragment slot="message">Upload image or drag and drop.</svelte:fragment>
-				<svelte:fragment slot="meta">PNG, JPG, HEIC ...</svelte:fragment>
-			</FileDropzone>
-		{/if}
+					<FileButton name="files" on:change={handleFileChange}>Upload new Image</FileButton>
+				</div>
 
-		<form action="/upload" method="post" enctype="multipart/form-data" class="border-2">
-			<label for="imageUpload">Select an image:</label>
-			<input type="file" id="imageUpload" name="image" accept="image/*" />
-			<input type="submit" value="Upload" />
-		</form> -->
+				<label class="label">
+					<span>Description</span>
+					<input class="input" type="text" placeholder="Input" bind:value={descValue} />
+				</label>
+
+				<button type="submit" class="btn variant-filled-secondary my-3">Post</button>
+			{:else}
+				<FileButton name="files" on:change={handleFileChange}>Upload an Image</FileButton>
+			{/if}
+		</form>
 	</main>
 {/if}
