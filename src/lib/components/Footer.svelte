@@ -2,8 +2,8 @@
 	import { Home, Search, PlusSquare, Heart, User } from 'lucide-svelte';
 	import NavEntry from './NavEntry.svelte';
 
-	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
-	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings } from '@skeletonlabs/skeleton';
 
 	const modalStore = getModalStore();
 
