@@ -8,10 +8,7 @@
 	export let post: any;
 	let showMore = false;
 	let showComments = false;
-	console.log(post);
-
-	// calc time since post was created
-	 
+	console.log(post)
 
 	// Get the current timestamp
 	const now = new Date();
@@ -24,7 +21,6 @@
 	const minutes = Math.floor(seconds / 60);
 	const hours = Math.floor(minutes / 60);
 	const days = Math.floor(hours / 24);
-	console.log(post)
 
 	let time_since = '1w';
 
