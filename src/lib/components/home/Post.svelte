@@ -67,7 +67,7 @@
 		<img
 			src={post.img_url}
 			alt={post.description.substring(0, 50) + '...'}
-			class="h-[450px] sm:h-[600px] object-cover w-full"
+			class="h-[450px] sm:h-[600px] object-cover w-full md:rounded-md"
 		/>
 	</section>
 
