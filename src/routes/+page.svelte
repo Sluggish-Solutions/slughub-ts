@@ -6,13 +6,6 @@
 	
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
 	export let data;
-    //window.addEventListener('scroll', function() {
-      // Check if the user has scrolled to the bottom
-     // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        // You have reached the bottom of the page
-      //  console.log('Reached the bottom of the page!');
-      //}
-    //});
 	
 	let post1 = {
 		details: {
@@ -57,7 +50,7 @@
 </script>
 
 <div class="w-full md:max-w-xl flex flex-col justify-center">
-	{#each data.posts_w_comments.slice(0, 3) as post}
+	{#each data.posts_w_comments.slice(0, 4) as post}
 		<Post {post} />
 	{/each}
 

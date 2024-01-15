@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Profile from '$lib/components/Profile.svelte';
+
+	export let data;
+	console.log(data.curr_user.data)
 </script>
 
-<h1>dafdsf</h1>
-
-<Profile/>
+<Profile curr_user={data.curr_user} />

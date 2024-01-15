@@ -18,7 +18,7 @@ export const getCurrUserData = async () => {
 		})
 	})
 	const response = await res.json()
-	console.log(response)
+	
 	return response
 	// ideally it would be nice if there was some sort of toast if some error happend?
 	//
