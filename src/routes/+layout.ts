@@ -5,7 +5,7 @@ import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit';
 import type { Database } from '../../types/supabase.types';
 import { setUserId } from '../stores/userStore';
 
-// ts-expect-error depends has any time, we dont care abt it though
+// @ts-expect-error depends has any time, we dont care abt it though
 export const load = async ({ fetch, data, depends }) => {
 	depends('suapbase:auth');
 

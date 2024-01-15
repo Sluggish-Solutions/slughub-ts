@@ -32,10 +32,6 @@
     </div>
     <!--Grid for posts-->
     <div class="grid grid-cols-3 gap-3 pt-10 px-5">
-        {#each userData.postArray as img}
-            <img src={img} alt="not working" class="">
-        {/each} 
-    
         
         
     </div>

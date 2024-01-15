@@ -40,7 +40,7 @@
 		</div>
 	</svelte:fragment>
 
-	<div class="flex my-16 md:my-0 w-full md:justify-center">
+	<div class="flex my-16 md:my-0 w-full lg:justify-center">
 		<slot />
 	</div>
 
