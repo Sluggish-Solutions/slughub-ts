@@ -20,9 +20,6 @@ export const getCurrUserData  = async () => {
 	const response = await res.json()
 	console.log(response)
 return response	
-	console.log("post store response", response);
-// ideally it would be nice if there was some sort of toast if some error happend?
-	//
 	
 }
 export const getUserData  = async (user_id: string) => {
@@ -35,8 +32,5 @@ export const getUserData  = async (user_id: string) => {
 	const response = await res.json()
 	console.log(response)
 return response
-	console.log("post store response", response);
-// ideally it would be nice if there was some sort of toast if some error happend?
-	//
 	
 }

@@ -3,13 +3,14 @@
 	import { FileDropzone, FileButton } from '@skeletonlabs/skeleton';
 	import { FileUp } from 'lucide-svelte';
 	import {createPost} from '$stores/postStore'
+	import {curr_user_id} from '$stores/userStore'
 	const modalStore = getModalStore();
 
 	let files: FileList;
 	let uploaded = false;
 	$: base64Image = ''
 
-	const handleFileChange = (e: Event) => {
+	const handleFileChange = async(e: Event) => {
 		if (e.target) {
 			files = e.target.files;
 
@@ -24,10 +25,22 @@
 			};
 
 			reader.readAsDataURL(selectedImage);
-
-
+				
 		}
+
+		await submitPost("djaowjdoaijdoiwajd");
 	};
+
+
+	const submitPost = async(desciption: string) =>{
+
+		let img_data = localStorage.getItem('userImage');
+		
+		let api_call = await createPost(img_data, desciption, );
+			
+	}
+
+
 </script>
 
 {#if $modalStore[0]}

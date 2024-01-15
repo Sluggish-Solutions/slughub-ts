@@ -42,7 +42,6 @@ export const postComment = async (post_id: string, comment_body: string) => {
 export const createPost = async (image: any , body: string) => {
 	let user_id = ''
 	curr_user_id.subscribe((value) => user_id = value);
-	console.log("image", image)
 	const res = await fetch('/api/createPost', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -53,7 +52,7 @@ export const createPost = async (image: any , body: string) => {
 	})
 	const response = await res.json()
 	
-	console.log(response);
+	console.log(response)
 // ideally it would be nice if there was some sort of toast if some error happend?
 	//
 }

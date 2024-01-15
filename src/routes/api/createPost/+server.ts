@@ -1,28 +1,30 @@
 
 
 import { json, type RequestHandler } from '@sveltejs/kit'
+import { decode } from 'base64-arraybuffer'
 
 export const POST: RequestHandler = async (event) => {
-    // const data = await event.request.formData();
     const request = await event.request.json()
     const user_id = request["user_id"];
     const post_body = request["post_body"];
     const image = request["image"];
 
-    console.log(image);
-    
+    console.log("server getting this", image);
+    // okay now we have the image data, we want to create a link between the bucket and the img
+    //
+    //
+    // how is this possible?
 
-    //this is the actual insertion operation, this should only be done after verifying that the user exists and that they havent liked the post already
-    // const { data, error } = await event.locals.supabase
-    //     .from("comments")
-    //     .insert({ parent_post: post_id, author: user_id , body: comment_body})
-    //     .select()
-    // if (error) {
-    //     console.log(error);
-    //     return json({ success: false })
-    // }
 
-    //console.log("data returned from insert", data);
+    const status = await event.locals.supabase
+        .storage
+        .from('post-images')
+        .upload('avatar2.png', decode(image), {
+            contentType: 'image/png'
+        })
+
+    console.log(status)
+
 
     return json({ success: true })
 }
