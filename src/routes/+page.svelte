@@ -6,13 +6,13 @@
 	
 	// on load, home page will get an array of posts (objects); data should get the first 3 posts, each containing (post object and user object)
 	export let data;
-    window.addEventListener('scroll', function() {
+    //window.addEventListener('scroll', function() {
       // Check if the user has scrolled to the bottom
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+     // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         // You have reached the bottom of the page
-        console.log('Reached the bottom of the page!');
-      }
-    });
+      //  console.log('Reached the bottom of the page!');
+      //}
+    //});
 	
 	let post1 = {
 		details: {
