@@ -4,6 +4,10 @@ import { json, type RequestHandler } from '@sveltejs/kit'
 import { decode } from 'base64-arraybuffer'
 import { randomUUID } from 'crypto';
 
+import type { Config } from '@sveltejs/adapter-vercel';
+export const config: Config = {
+	runtime: 'edge'
+};
 export const POST: RequestHandler = async (event) => {
     const request = await event.request.json()
     const user_id = request["user_id"];

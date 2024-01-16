@@ -3,18 +3,10 @@ import { json, type RequestHandler } from '@sveltejs/kit'
 
 // /api/newsletter GET
 
-export async function GET(event) {
-  const options: ResponseInit = {
-    status: 418,
-    headers: {
-      X: 'Gon give it to ya',
-    }
-  }
-
-  return new Response('Hello', options)
-}
-
-// /api/newsletter POST
+import type { Config } from '@sveltejs/adapter-vercel';
+export const config: Config = {
+	runtime: 'edge'
+};
 
 export const POST: RequestHandler = async (event) => {
   // const data = await event.request.formData();

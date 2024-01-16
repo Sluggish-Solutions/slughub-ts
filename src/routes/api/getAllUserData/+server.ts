@@ -1,6 +1,10 @@
 
 import { json, type RequestHandler } from '@sveltejs/kit'
 
+import type { Config } from '@sveltejs/adapter-vercel';
+export const config: Config = {
+	runtime: 'edge'
+};
 export const POST: RequestHandler = async (event) => {
     // const data = await event.request.formData();
     const request = await event.request.json()
